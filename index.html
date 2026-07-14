@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUROPA MAGICA DESDE LONDRES | Domiruth Travel Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <a href="#" class="header-top-banner">
+    <img src="img/discount-package.png" class="banner-desktop" alt="Banner promo escritorio">
+    <img src="img/barramovil.jpg" class="banner-mobile" alt="Banner promo móvil">
+  </a>
+
+  <div class="header-main">
+    <div class="container header-main__inner">
+      <a href="https://vacation.domiruth.com/" class="logo">
+        <img src="img/LOGOS-01.png" alt="Logo">
+      </a>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar...">
+        <button aria-label="Buscar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+      <div class="header-actions show-desktop">
+        <a href="#" class="header-icon">Ingresar</a>
+        <a href="#" class="header-icon header-icon--cart">Carrito<span class="cart-count">2</span></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav" id="mainNav">
+    <div class="container main-nav__inner">
+      <div class="mobile-only mobile-user-actions">
+         <a href="#">Ingresar</a>
+         <a href="#">Carrito (2)</a>
+      </div>
+      <a href="#" class="nav-btn">Vuelos</a>
+      <a href="#" class="nav-btn">Hoteles</a>
+      <a href="#" class="nav-btn">Ofertas Imperdibles</a>
+      <a href="#" class="nav-btn">Destinos Asia</a>
+      <a href="#" class="nav-btn">Destinos Sudamerica</a>
+      <a href="#" class="nav-btn">Saca tu Visa</a>
+      <a href="#" class="nav-btn nav-highlight">Ofertas Europa</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- ============ BREADCRUMB ============ -->
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <a href="#">Inicio</a>
+    <span>/</span>
+    <a href="#">Paquetes</a>
+    <span>/</span>
+    <a href="#">Destinos Europa</a>
+    <span>/</span>
+    <span class="breadcrumb__current">EUROPA MAGICA DESDE LONDRES FLY</span>
+  </nav>
+
+  <!-- ============ PRODUCTO PRINCIPAL ============ -->
+  <section class="product">
+
+    <!-- Galería -->
+    <div class="product__gallery">
+      <div class="gallery-thumbs-wrapper">
+        <button class="thumb-nav thumb-nav--up" aria-label="Subir" id="thumbNavUp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+        
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <button class="thumb is-active" data-img="img/producto-1.jpg">
+            <img src="img/PAQUETE/Londres2.jpg" alt="Vista frontal">
+          </button>
+          <button class="thumb" data-img="img/producto-2.jpg">
+            <img src="img/PAQUETE/Londres.jpg" alt="Vista lateral">
+          </button>
+          <button class="thumb" data-img="img/producto-3.jpg">
+            <img src="img/PAQUETE/Londres3.jpg" alt="Conectores">
+          </button>
+          <button class="thumb" data-img="img/producto-4.jpg">
+            <img src="img/PAQUETE/paris.jpg" alt="Iluminación RGB">
+          </button>
+          <button class="thumb" data-img="img/producto-5.jpg">
+            <img src="img/PAQUETE/paris2.jpg" alt="Caja del producto">
+          </button>
+          <button class="thumb" data-img="img/producto-5.jpg">
+            <img src="img/PAQUETE/roma.jpg" alt="Caja del producto">
+          </button>
+          <button class="thumb" data-img="img/producto-5.jpg">
+            <img src="img/PAQUETE/roma2.jpg" alt="Caja del producto">
+          </button>
+          <button class="thumb" data-img="img/producto-5.jpg">
+            <img src="img/PAQUETE/venecia-2.jpg" alt="Caja del producto">
+          </button>
+          <button class="thumb" data-img="img/producto-5.jpg">
+            <img src="img/PAQUETE/venecia.jpg" alt="Caja del producto">
+          </button>
+        </div>
+
+        <button class="thumb-nav thumb-nav--down" aria-label="Bajar" id="thumbNavDown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="gallery-main">
+        <button class="gallery-zoom" aria-label="Ampliar imagen">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <img id="galleryMainImg" src="img/PAQUETE/Londres2.jpg" alt="Londres">
+      </div>
+    </div>
+
+    <!-- Info del producto -->
+    <div class="product__info">
+      <p class="product__brand">DESTINOS EUROPA</p>
+      <h1 class="product__title">EUROPA MAGICA DESDE LONDRES FLY | 19 Días + 18 noches</h1>
+
+      <div class="product__meta">
+  <a href="#reviews" class="product__reviews-link">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+      <path d="M3 21h18"></path>
+      <path d="M5 21V7l7-4 7 4v14"></path>
+      <path d="M9 11v.01"></path>
+      <path d="M15 11v.01"></path>
+      <path d="M12 11v.01"></path>
+      <path d="M9 15v.01"></path>
+      <path d="M15 15v.01"></path>
+      <path d="M12 15v.01"></path>
+    </svg>
+    Ver Hoteles Previstos
+  </a>
+  <span class="divider-dot"></span>
+</div>
+
+      <div class="price-box" id="priceBox" data-price-usd="4588" data-price-old-usd="5199" data-exchange-rate="3.40">
+        <div class="price-box__cols">
+          <div class="price-box__col">
+            <div class="price-box__row">
+              <span class="price-old" id="priceOldUSD">$ 5199.00</span>
+              <span class="price-badge">-12%</span>
+            </div>
+            <div class="price-now">$ <span id="priceUSD">4,588</span><small id="priceUSDCents">.00</small></div>
+          </div>
+          <div class="price-box__col price-box__col--pen">
+            <div class="price-box__row">
+              <span class="price-old" id="priceOldPEN">S/ 17,676.60</span>
+              <span class="price-badge">-12%</span>
+            </div>
+            <div class="price-now">S/ <span id="pricePEN">15,599</span><small id="pricePENCents">.20</small></div>
+          </div>
+        </div>
+        <p class="price-box__note">* Precio por pasajero. Referencial según tipo de cambio S/ <span id="exchangeRateLabel">3.40</span> por USD.</p>
+      </div>
+
+      <div class="stock-row">
+        <span class="stock-dot"></span>
+        <span class="stock-text"><strong>Fecha de Salida:</strong> — 06 nov al 24 nov 2026</span>
+      </div>
+
+      <div class="qty-buy-row">
+        <div class="qty-selector">
+          <button type="button" id="qtyMinus" aria-label="Disminuir cantidad">−</button>
+          <input type="number" id="qtyInput" value="1" min="1" max="10" aria-label="Cantidad">
+          <button type="button" id="qtyPlus" aria-label="Aumentar cantidad">+</button>
+        </div>
+        <button class="btn btn--primary" id="addToCartBtn">Agregar Pasajeros</button>
+      </div>
+      <button class="btn btn--secondary btn--full">Reservar ahora</button>
+
+      <ul class="quick-specs">
+        <li><span>Destinos</span><strong>Londres, París, Venecia, Florencia, Roma, Barcelona y Madrid</strong></li>
+        <li><span>Fecha de Salida:</span><strong>06 nov al 24 nov 2026</strong></li>
+      </ul>
+
+      <div class="payment-methods">
+        <p>Medios de pago</p>
+        <div class="payment-icons">
+          <!-- Reemplaza por tus propios íconos: img/pago-visa.png, img/pago-mastercard.png, etc. -->
+          <img src="img/visa.png" alt="Visa">
+          <img src="img/master.webp" alt="Mastercard">
+          <img src="img/diners.png" alt="Diners Club">
+          <img src="img/yape.png" alt="Yape">
+          <img src="img/bcp.webp" alt="Transferencia bancaria">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="servicios-confirmados">
+
+  <!-- ============ SERVICIOS CONFIRMADOS ============ -->
+  <section class="servicios-confirmados">
+    <h2 class="servicios-title">DIAS CONFIRMADOS VUELOS & SERVICIOS</h2>
+    <div class="servicios-box">
+      
+      <a href="#info-general" class="servicio-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+          <line x1="9" y1="3" x2="9" y2="21"></line>
+          <line x1="15" y1="3" x2="15" y2="21"></line>
+          <!-- Puntos de ruta -->
+          <path d="M8 12h.01M12 12h.01M16 12h.01"></path>
+        </svg>
+        <span>Información General</span>
+      </a>
+
+      <a href="#que-visitar" class="servicio-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="7" width="16" height="14" rx="2" ry="2"></rect>
+          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <path d="M10 16h4"></path>
+        </svg>
+        <span>¿Qué visitar?</span>
+      </a>
+
+      <a href="#requisitos" class="servicio-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 17c-2 0-3-2-5-2s-3 2-5 2-3-2-5-2-3 2-5 2"></path>
+          <path d="M22 21c-2 0-3-2-5-2s-3 2-5 2-3-2-5-2-3 2-5 2"></path>
+          <path d="M4 15l5-6 3 3 5-7 3 5"></path>
+          <path d="M14 4l1 1-1 1"></path>
+          <path d="M18 3l1 1-1 1"></path>
+        </svg>
+        <span>Requisitos de entrada</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ DESCRIPCIÓN ============ -->
+  <section class="descripcion" id="descripcion">
+
+  <!-- ============ DESCRIPCIÓN ============ -->
+  <section class="descripcion" id="descripcion">
+    <h2 class="section-title">Descripción</h2>
+    <div class="descripcion__layout">
+      <div class="descripcion__map">
+        <img src="img/europa.webp" alt="Mapa de la ruta del viaje" onerror="this.style.display='none'">
+      </div>
+      <div class="descripcion__content">
+        <p>Descubre paisajes que parecen sacados de otro planeta en este recorrido que combina selva, montaña
+        e islas volcánicas. Camina entre gigantes verdes en la <strong>Amazonía</strong>, siente la fuerza del
+        agua en las cascadas de <strong>Baños</strong> y déjate sorprender por la fauna única de las
+        <strong>Islas Galápagos</strong>. Un itinerario pensado para quienes buscan naturaleza, cultura y
+        aventura en un mismo viaje.</p>
+        <div class="destacados-row">
+          <span class="destacado-chip">🌴 Amazonía</span>
+          <span class="destacado-chip">💦 Baños</span>
+          <span class="destacado-chip">🐢 San Cristóbal</span>
+          <span class="destacado-chip">🏙️ Quito</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ITINERARIO ============ -->
+  <section class="itinerario" id="itinerario">
+    <h2 class="section-title">Itinerario</h2>
+    <div class="itinerary-list" id="itineraryList">
+
+      <div class="itinerary-day is-open">
+        <button class="itinerary-day__header" type="button" data-day-toggle>
+          <span class="itinerary-day__num">1</span>
+          <span class="itinerary-day__heading">
+            <span class="itinerary-day__label">Día 1</span>
+            <span class="itinerary-day__title">España – Quito</span>
+          </span>
+          <svg class="itinerary-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="itinerary-day__body">
+          <img src="img/dia1.webp" alt="Llegada a Quito" onerror="this.style.display='none'">
+          <p>Traslado al aeropuerto de salida para tomar el vuelo hacia Quito. A la llegada, traslado al hotel
+          y check-in. La capital ecuatoriana destaca por su casco colonial, declarado Patrimonio de la
+          Humanidad, y por combinar historia y vida moderna en un mismo paisaje urbano. Alojamiento en Quito.</p>
+          <div class="itinerary-day__activities">
+            <span class="activity-tag activity-tag--included">Traslado aeropuerto - hotel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <button class="itinerary-day__header" type="button" data-day-toggle>
+          <span class="itinerary-day__num">2</span>
+          <span class="itinerary-day__heading">
+            <span class="itinerary-day__label">Día 2</span>
+            <span class="itinerary-day__title">Quito – Tena – Amazonía</span>
+          </span>
+          <svg class="itinerary-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="itinerary-day__body">
+          <img src="img/dia2.jpg" alt="Camino hacia la Amazonía" onerror="this.style.display='none'">
+          <p>Recorrido matutino por el centro histórico de Quito y sus mercados tradicionales. Luego viajamos
+          desde los Andes hacia el oriente, descendiendo hasta el lodge en plena selva, donde cerramos el día
+          con una caminata nocturna guiada para descubrir la vida silvestre del Amazonas tras el anochecer.</p>
+          <div class="itinerary-day__activities">
+            <span class="activity-tag activity-tag--included">Visita a la ciudad de Quito · 2h</span>
+            <span class="activity-tag activity-tag--included">Paseo nocturno en Tena · 1h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <button class="itinerary-day__header" type="button" data-day-toggle>
+          <span class="itinerary-day__num">3</span>
+          <span class="itinerary-day__heading">
+            <span class="itinerary-day__label">Día 3</span>
+            <span class="itinerary-day__title">Amazonía</span>
+          </span>
+          <svg class="itinerary-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="itinerary-day__body">
+          <img src="img/itinerario-dia3.jpg" alt="Caminata en la selva" onerror="this.style.display='none'">
+          <p>Caminata guiada por el bosque secundario para observar de cerca la biodiversidad amazónica: monos,
+          aves, ranas y, con suerte, algún felino salvaje. Tarde libre en el lodge para descansar entre la
+          vegetación. Pensión completa incluida durante la estancia en la selva.</p>
+          <div class="itinerary-day__activities">
+            <span class="activity-tag activity-tag--included">Caminata por la selva amazónica · 2h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <button class="itinerary-day__header" type="button" data-day-toggle>
+          <span class="itinerary-day__num">4</span>
+          <span class="itinerary-day__heading">
+            <span class="itinerary-day__label">Día 4</span>
+            <span class="itinerary-day__title">Amazonía – Tena – Baños</span>
+          </span>
+          <svg class="itinerary-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="itinerary-day__body">
+          <img src="img/itinerario-dia4.jpg" alt="Cascada Pailón del Diablo" onerror="this.style.display='none'">
+          <p>Ruta hacia Baños con parada en la impresionante cascada Pailón del Diablo, a la que se llega tras
+          una corta caminata hasta un puente colgante con vista panorámica. Al llegar a Baños, degustación de
+          los dulces tradicionales de caña de la zona.</p>
+          <div class="itinerary-day__activities">
+            <span class="activity-tag activity-tag--included">Cascada Pailón del Diablo · 1h</span>
+            <span class="activity-tag activity-tag--included">Degustación de melcochas · 30m</span>
+            <span class="activity-tag activity-tag--optional">Experiencia de bienestar con cena · 3h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <button class="itinerary-day__header" type="button" data-day-toggle>
+          <span class="itinerary-day__num">5</span>
+          <span class="itinerary-day__heading">
+            <span class="itinerary-day__label">Día 5</span>
+            <span class="itinerary-day__title">Quito – San Cristóbal, Islas Galápagos</span>
+          </span>
+          <svg class="itinerary-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="itinerary-day__body">
+          <img src="img/dia2.jpg" alt="Llegada a Galápagos" onerror="this.style.display='none'">
+          <p>Vuelo hacia las Islas Galápagos. Por la tarde, recorrido a pie por Puerto Baquerizo Moreno para
+          conocer sus principales atractivos, con la opción de sumarte a un tour opcional en kayak por la
+          costa volcánica de la isla.</p>
+          <div class="itinerary-day__activities">
+            <span class="activity-tag activity-tag--included">Recorrido a pie por San Cristóbal · 1h</span>
+            <span class="activity-tag activity-tag--optional">Experiencia de kayak · 1h 30m</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <button class="itinerary-day__header" type="button" data-day-toggle>
+          <span class="itinerary-day__num">6</span>
+          <span class="itinerary-day__heading">
+            <span class="itinerary-day__label">Día 6</span>
+            <span class="itinerary-day__title">Regreso a España</span>
+          </span>
+          <svg class="itinerary-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="itinerary-day__body">
+          <img src="img/dia2.jpg" alt="Fin del viaje" onerror="this.style.display='none'">
+          <p>Llegada a la ciudad de origen y fin del viaje.</p>
+        </div>
+      </div>
+
+    </div>
+    <button class="btn btn--outline itinerario__download" type="button">Descargar itinerario</button>
+  </section>
+
+  <!-- ============ QUÉ INCLUYE ============ -->
+  <section class="incluye" id="incluye">
+    <h2 class="section-title">Qué incluye</h2>
+    <ul class="incluye-list">
+      <li>Salida desde las principales ciudades del país.</li>
+      <li>Vuelos internacionales de ida y vuelta.</li>
+      <li>Vuelos internos: continente – Galápagos y Galápagos – continente.</li>
+      <li>10 noches en hoteles de categoría Encanto.</li>
+      <li>8 desayunos y pensión completa durante la estancia en la Amazonía.</li>
+      <li>Traslados aeropuerto – hotel – aeropuerto.</li>
+      <li>Visitas y guía de habla hispana según el itinerario.</li>
+      <li>Tasas aéreas y de carburante.</li>
+      <li>Seguro básico de viaje.</li>
+    </ul>
+  </section>
+  
+  <section class="iconos-incluidos">
+    <div class="iconos-incluidos__grid">
+      
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 11v.01"></path><path d="M15 11v.01"></path><path d="M12 11v.01"></path><path d="M9 15v.01"></path><path d="M15 15v.01"></path><path d="M12 15v.01"></path>
+        </svg>
+        <span>Hotel</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line>
+        </svg>
+        <span>Desayunos</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 22H2"></path><path d="M17.8 18.2 16 10l3.5-3.5C21 5 21.5 3 21.5 3c0 0-2 .5-3.5 2L14.5 8.5 6.3 6.7l-1.6 1.6 5.4 3.7-4.1 4.1-3.1-.8-1.5 1.5 4.6 1.4 1.4 4.6 1.5-1.5-.8-3.1 4.1-4.1 3.7 5.4z"></path>
+        </svg>
+        <span>Vuelo</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path><path d="M12 12c0 2 1.5 4 3 4s3-2 3-4v-2l-3-1-3 1v2z"></path><path d="M14 11v2"></path><path d="M13 12h2"></path>
+        </svg>
+        <span>Tarjeta de<br>asistencia</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="7" r="4"></circle><path d="M12 11c-3.3 0-6 2.7-6 6v1h12v-1c0-3.3-2.7-6-6-6z"></path><path d="M18 10v6"></path><path d="M18 10l4 2-4 2"></path>
+        </svg>
+        <span>Guía</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><circle cx="15" cy="10" r="3"></circle>
+        </svg>
+        <span>Tours</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21c-4-4-7-8-7-11a7 7 0 0 1 14 0c0 3-3 7-7 11z"></path><circle cx="12" cy="10" r="2"></circle>
+        </svg>
+        <span>Visitas</span>
+      </div>
+
+      <div class="icono-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v10c0 .6.4 1 1 1h2"></path><circle cx="9" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle>
+        </svg>
+        <span>Traslados</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ ALOJAMIENTO ============ -->
+  <section class="alojamiento" id="alojamiento">
+    <h2 class="section-title">Alojamiento</h2>
+    <p class="alojamiento__note">Estos son los hoteles destacados para este viaje. La asignación depende de la
+    disponibilidad y la temporada, por lo que podría asignarse cualquier hotel de nuestra selección con
+    categoría igual o superior.</p>
+    <div class="alojamiento__grid">
+      <article class="alojamiento-card">
+        <div class="alojamiento-card__img">
+          <img src="img/hotel1.jpg" alt="Hotel categoría Encanto" onerror="this.style.display='none'">
+        </div>
+        <div class="alojamiento-card__body">
+          <span class="badge badge--oc">ENCANTO</span>
+          <h3>Categoría Encanto</h3>
+          <p>Hoteles de 3-4 estrellas con ubicación céntrica y atención personalizada.</p>
+          <span class="price-now price-now--sm">Desde S/ 9,999<small>.00</small></span>
+        </div>
+      </article>
+      <article class="alojamiento-card">
+        <div class="alojamiento-card__img">
+          <img src="img/hotel2.webp" alt="Hotel categoría Superior" onerror="this.style.display='none'">
+        </div>
+        <div class="alojamiento-card__body">
+          <span class="badge badge--teal">SUPERIOR</span>
+          <h3>Categoría Superior</h3>
+          <p>Hoteles boutique de 4-5 estrellas con mayores comodidades y mejores vistas.</p>
+          <span class="price-now price-now--sm">Desde S/ 12,599<small>.00</small></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+ 
+  <!-- ============ VIAJES SIMILARES (CARRUSEL) ============ -->
+  <section class="related" id="viajes-similares">
+    <h2 class="section-title">Viajes similares</h2>
+    <div class="carousel-container" id="viajesSimilaresCarousel">
+      <button class="carousel-btn prev" id="prevBtnSimilar" aria-label="Anterior">❮</button>
+
+      <div class="carousel-viewport">
+        <div class="actividades__grid" id="carouselTrackSimilar">
+        <!-- Tarjeta 1 -->
+        <article class="product-card">
+          <div class="product-card__img"><img src="img/PAQUETE/AJPON2.jpg" alt="Circuito por Perú mágico"></div>
+          <p class="product-card__brand">Perú</p>
+          <h3 class="product-card__title">Circuito Perú Mágico: Lima, Cusco y Machu Picchu</h3>
+          <div class="product-card__price"><span class="price-now price-now--sm">S/ 4,299<small>.00</small></span></div>
+          <button class="btn btn--outline btn--full">Ver viaje</button>
+        </article>
+
+        <!-- Tarjeta 2 -->
+        <article class="product-card">
+          <div class="product-card__img"><img src="img/PAQUETE/AJPON2.jpg" alt="Circuito por Costa Rica"></div>
+          <p class="product-card__brand">Costa Rica</p>
+          <h3 class="product-card__title">Costa Rica Esencial: Volcanes y Playas</h3>
+          <div class="product-card__price"><span class="price-now price-now--sm">S/ 5,899<small>.00</small></span></div>
+          <button class="btn btn--outline btn--full">Ver viaje</button>
+        </article>
+
+        <!-- Tarjeta 3 -->
+        <article class="product-card">
+          <div class="product-card__img"><img src="img/PAQUETE/AJPON2.jpg" alt="Circuito por la Patagonia"></div>
+          <p class="product-card__brand">Argentina y Chile</p>
+          <h3 class="product-card__title">Patagonia Infinita: Glaciares y Torres del Paine</h3>
+          <div class="product-card__price"><span class="price-now price-now--sm">S/ 7,499<small>.00</small></span></div>
+          <button class="btn btn--outline btn--full">Ver viaje</button>
+        </article>
+
+        <!-- Tarjeta 4 -->
+        <article class="product-card">
+          <div class="product-card__img"><img src="img/PAQUETE/AJPON2.jpg" alt="Circuito por México colonial"></div>
+          <p class="product-card__brand">México</p>
+          <h3 class="product-card__title">México Colonial: CDMX, Puebla y Oaxaca</h3>
+          <div class="product-card__price"><span class="price-now price-now--sm">S/ 4,899<small>.00</small></span></div>
+          <button class="btn btn--outline btn--full">Ver viaje</button>
+        </article>
+
+        <!-- Tarjeta 5 -->
+        <article class="product-card">
+          <div class="product-card__img"><img src="img/PAQUETE/AJPON2.jpg" alt="Circuito por México colonial"></div>
+          <p class="product-card__brand">México</p>
+          <h3 class="product-card__title">México Colonial: CDMX, Puebla y Oaxaca</h3>
+          <div class="product-card__price"><span class="price-now price-now--sm">S/ 4,899<small>.00</small></span></div>
+          <button class="btn btn--outline btn--full">Ver viaje</button>
+        </article>
+
+        <!-- Tarjeta 6 -->
+        <article class="product-card">
+          <div class="product-card__img"><img src="img/PAQUETE/AJPON2.jpg" alt="Circuito por México colonial"></div>
+          <p class="product-card__brand">México</p>
+          <h3 class="product-card__title">México Colonial: CDMX, Puebla y Oaxaca</h3>
+          <div class="product-card__price"><span class="price-now price-now--sm">S/ 4,899<small>.00</small></span></div>
+          <button class="btn btn--outline btn--full">Ver viaje</button>
+        </article>
+        </div>
+      </div>
+
+      <button class="carousel-btn next" id="nextBtnSimilar" aria-label="Siguiente">❯</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+</footer>
+<footer class="site-footer domiruth-footer">
+  <div class="container">
+    
+    <div class="domiruth-footer__top">
+      <div class="domiruth-footer__social">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+      <div class="domiruth-footer__sales">
+        Para ventas <strong>610 - 6000</strong> (opción 2, vacaciones)
+      </div>
+    </div>
+
+    <div class="domiruth-footer__grid">
+      <div class="domiruth-col">
+        <h4>Contáctanos</h4>
+        <p>Destinos Internacionales</p>
+        <p>WhatsApp<br><strong>(51) 999 993 675</strong></p>
+        <p>Email<br><strong>vacaciones@domiruth.pe</strong></p>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Horario de Atención</h4>
+        <p>Lun. a Vier. 9:00 am a 7:00 pm</p>
+        <p>Sab. 9:00 am a 3:00 pm</p>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Horario Fuera de Oficina</h4>
+        <p>Lun. a Vier. 7:00 pm a 9:00 am</p>
+        <p>Dom. a Sab. 24hrs</p>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Oficina</h4>
+        <p>Ubicación Av. Petit Thouars 4305 Miraflores</p>
+        <p>Lima, Perú</p>
+        <a href="#" class="domiruth-link">¿Cómo llegar?</a>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Reclamaciones</h4>
+        <a href="#" class="domiruth-link">Libro de Reclamaciones</a>
+      </div>
+    </div>
+
+    <div class="domiruth-footer__bottom">
+      <div class="domiruth-brands">
+        <span>DSS</span>
+        <span>Pago Cupo</span>
+        <span>Visa Int</span>
+        <span>ISO</span>
+        <span>APA</span>
+        <span>IATA</span>
+        <span>NaviCorp</span>
+      </div>
+      <p class="domiruth-copy">Copyright Domiruth Travel Service, S.A. 2020. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
