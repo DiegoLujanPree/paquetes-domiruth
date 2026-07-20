@@ -342,6 +342,9 @@ button{ font-family:inherit; cursor:pointer; }
   padding-left: 18px;
   margin-left: 18px;
 }
+.price-box__col--pen .price-now{
+  color: var(--ink);
+}
 .price-box__note{
   margin: 10px 0 0;
   font-size: 12px;
@@ -383,7 +386,13 @@ button{ font-family:inherit; cursor:pointer; }
   box-shadow: 0 0 0 4px var(--teal-soft);
 }
 
-.qty-buy-row{ display:flex; gap:12px; margin-bottom:0; }
+.qty-buy-row{ display:flex; align-items:center; gap:12px; margin-bottom:0; }
+.qty-label{
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
 .qty-selector{
   display:flex; align-items:center;
   border: 1.5px solid var(--line); border-radius: var(--radius-sm);
@@ -1246,4 +1255,146 @@ button{ font-family:inherit; cursor:pointer; }
 
 .product__reviews-link:hover svg {
   stroke: var(--accent); /* Cambia el color del icono al hacer hover */
+}
+/* =========================================================
+   MODAL INFORMATIVO (Servicios Confirmados)
+   ========================================================= */
+.info-modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 20, 28, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.info-modal-overlay.is-open{
+  opacity: 1;
+  visibility: visible;
+}
+.info-modal{
+  background: #fff;
+  width: min(680px, 100%);
+  max-height: 82vh;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(18, 20, 28, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(14px) scale(0.98);
+  transition: transform 0.25s ease;
+}
+.info-modal-overlay.is-open .info-modal{
+  transform: translateY(0) scale(1);
+}
+.info-modal__header{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.info-modal__title{
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+.info-modal__subtitle{
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
+}
+.info-modal__close{
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-soft);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.info-modal__close svg{ width: 18px; height: 18px; }
+.info-modal__close:hover{
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.info-modal__tabs{
+  display: flex;
+  gap: 22px;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.info-modal__tab{
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 2px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.info-modal__tab:hover{
+  color: var(--ink);
+}
+.info-modal__tab.is-active{
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.info-modal__body{
+  padding: 22px 28px 28px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+.info-cards-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.info-card{
+  background: var(--bg-soft);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+.info-card h4{
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.info-card p{
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 640px){
+  .info-modal{ max-height: 88vh; }
+  .info-modal__header{ padding: 20px 20px 14px; }
+  .info-modal__tabs{ padding: 0 20px; gap: 16px; }
+  .info-modal__body{ padding: 18px 20px 24px; }
+  .info-cards-grid{ grid-template-columns: 1fr; }
 }

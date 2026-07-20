@@ -162,14 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   qtyMinus.addEventListener('click', () => {
     qtyInput.value = clampQty((parseInt(qtyInput.value, 10) || 1) - 1);
+    updatePrices(parseInt(qtyInput.value, 10) || 1);
   });
 
   qtyPlus.addEventListener('click', () => {
     qtyInput.value = clampQty((parseInt(qtyInput.value, 10) || 1) + 1);
+    updatePrices(parseInt(qtyInput.value, 10) || 1);
   });
 
   qtyInput.addEventListener('change', () => {
     qtyInput.value = clampQty(parseInt(qtyInput.value, 10) || 1);
+    updatePrices(parseInt(qtyInput.value, 10) || 1);
   });
 
   /* ---------- Acordeón del itinerario ---------- */
@@ -180,28 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const dayEl = header.closest('.itinerary-day');
       dayEl.classList.toggle('is-open');
     });
-  });
-
-  /* ---------- Agregar al carrito (placeholder) ---------- */
-  const addToCartBtn = document.getElementById('addToCartBtn');
-  const cartCount     = document.querySelector('.cart-count');
-
-  addToCartBtn.addEventListener('click', () => {
-    const qty = parseInt(qtyInput.value, 10) || 1;
-
-    // Recalcula el precio total (USD y PEN) según la cantidad de pasajeros
-    updatePrices(qty);
-
-    // Aquí puedes conectar tu lógica real de carrito (API, localStorage, etc.)
-    const current = parseInt(cartCount.textContent, 10) || 0;
-    cartCount.textContent = current + qty;
-
-    addToCartBtn.textContent = 'Agregado ✓';
-    addToCartBtn.style.background = '#00C2A8';
-    setTimeout(() => {
-      addToCartBtn.textContent = 'Agregar Pasajeros';
-      addToCartBtn.style.background = '';
-    }, 1400);
   });
 
   // Precio inicial en soles al cargar la página (con 1 pasajero)
@@ -341,3 +322,175 @@ initInfiniteCarousel({
   nextBtnId: 'nextBtnSimilar',
   autoplayDelay: 4000
 });
+
+/* ---------- Modal informativo (Servicios Confirmados) ---------- */
+(() => {
+  const overlay  = document.getElementById('infoModalOverlay');
+  const titleEl  = document.getElementById('infoModalTitle');
+  const subEl    = document.getElementById('infoModalSubtitle');
+  const tabsEl   = document.getElementById('infoModalTabs');
+  const bodyEl   = document.getElementById('infoModalBody');
+  const closeBtn = document.getElementById('infoModalClose');
+  const triggers = document.querySelectorAll('.servicio-item');
+
+  if (!overlay || !triggers.length) return;
+
+  // Contenido de cada botón: título, subtítulo y pestañas con tarjetas de información
+  const infoModalData = {
+    'info-general': {
+      title: 'Información General',
+      subtitle: 'Datos útiles antes de viajar',
+      tabs: [
+        {
+          label: 'Datos del viaje',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🗓️ Duración</h4><p>19 días y 18 noches recorriendo las principales ciudades de Europa, con salida y llegada desde Londres.</p></div>
+            <div class="info-card"><h4>🌍 Idiomas</h4><p>Inglés, francés, italiano y español según el país. Guías de habla hispana en los tours incluidos.</p></div>
+            <div class="info-card"><h4>🔌 Electricidad</h4><p>Voltaje de 220-240V. Se recomienda llevar un adaptador universal, ya que el enchufe varía por país.</p></div>
+            <div class="info-card"><h4>🕐 Zona horaria</h4><p>Europa continental usa UTC+1 (UTC+2 en verano). Reino Unido usa UTC+0.</p></div>
+          </div>`
+        },
+        {
+          label: 'Clima',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>☀️ Temporada de viaje</h4><p>Noviembre trae temperaturas frescas en toda la ruta, entre 5°C y 14°C, ideales para recorrer ciudades.</p></div>
+            <div class="info-card"><h4>🧥 Qué llevar</h4><p>Ropa de abrigo por capas, un impermeable ligero y calzado cómodo para caminar largas distancias.</p></div>
+          </div>`
+        },
+        {
+          label: 'Moneda',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>💶 Euro</h4><p>Moneda oficial en la mayor parte del recorrido (Francia, Italia, España). Símbolo €, 100 céntimos.</p></div>
+            <div class="info-card"><h4>💷 Libra esterlina</h4><p>Moneda oficial en Reino Unido. Se recomienda cambiar un monto pequeño antes de llegar a Londres.</p></div>
+          </div>`
+        }
+      ]
+    },
+    'que-visitar': {
+      title: '¿Qué visitar?',
+      subtitle: 'Los imperdibles de cada destino',
+      tabs: [
+        {
+          label: 'Reino Unido',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🏰 Londres</h4><p>El Big Ben, el London Eye, el Palacio de Buckingham y el barrio de Camden Town.</p></div>
+            <div class="info-card"><h4>🌉 Tower Bridge</h4><p>Uno de los símbolos más fotografiados de la ciudad, junto a la Torre de Londres.</p></div>
+          </div>`
+        },
+        {
+          label: 'Francia e Italia',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🗼 París</h4><p>La Torre Eiffel, el Museo del Louvre y un paseo en barco por el río Sena.</p></div>
+            <div class="info-card"><h4>🛶 Venecia</h4><p>Recorre sus canales en góndola y visita la Plaza de San Marcos.</p></div>
+            <div class="info-card"><h4>🏛️ Roma</h4><p>El Coliseo, el Vaticano y la Fontana di Trevi, entre los sitios más visitados del mundo.</p></div>
+            <div class="info-card"><h4>🎨 Florencia</h4><p>Cuna del Renacimiento, con la Galería Uffizi y el Duomo como principales atractivos.</p></div>
+          </div>`
+        },
+        {
+          label: 'España',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🎨 Barcelona</h4><p>La Sagrada Familia y el Parque Güell, obras maestras de Gaudí.</p></div>
+            <div class="info-card"><h4>🖼️ Madrid</h4><p>El Museo del Prado y el Palacio Real, en el corazón de la capital española.</p></div>
+          </div>`
+        }
+      ]
+    },
+    'requisitos': {
+      title: 'Requisitos de entrada',
+      subtitle: 'Documentación necesaria para tu viaje',
+      tabs: [
+        {
+          label: 'Pasaporte y visa',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🛂 Pasaporte</h4><p>Vigencia mínima de 6 meses desde la fecha de regreso, con al menos 2 páginas en blanco.</p></div>
+            <div class="info-card"><h4>📄 Visa Schengen</h4><p>Requerida para viajeros sin exención. Verifica el trámite según tu nacionalidad.</p></div>
+          </div>`
+        },
+        {
+          label: 'Seguro de viaje',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🩺 Cobertura médica</h4><p>Seguro básico de viaje incluido en el paquete, con asistencia médica en el extranjero.</p></div>
+          </div>`
+        },
+        {
+          label: 'Otros requisitos',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>💉 Vacunas</h4><p>No se exigen vacunas obligatorias para ingresar a los países del itinerario.</p></div>
+            <div class="info-card"><h4>✈️ Formularios digitales</h4><p>Verifica requisitos de registro electrónico como ETA o ETIAS antes de tu viaje.</p></div>
+          </div>`
+        }
+      ]
+    },
+    'hoteles': {
+      title: 'Hoteles Previstos',
+      subtitle: 'Alojamiento incluido en tu paquete',
+      tabs: [
+        {
+          label: 'Categoría Encanto',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🏨 Hoteles Encanto</h4><p>Hoteles de 3-4 estrellas con ubicación céntrica y atención personalizada. Desde S/ 9,999.00 por pasajero.</p></div>
+          </div>`
+        },
+        {
+          label: 'Categoría Superior',
+          content: `<div class="info-cards-grid">
+            <div class="info-card"><h4>🏨 Hoteles Superior</h4><p>Hoteles boutique de 4-5 estrellas con mayores comodidades y mejores vistas. Desde S/ 12,599.00 por pasajero.</p></div>
+          </div>`
+        }
+      ]
+    }
+  };
+
+  const renderTab = (tab) => {
+    bodyEl.innerHTML = tab.content;
+    bodyEl.scrollTop = 0;
+  };
+
+  const openModal = (key) => {
+    const data = infoModalData[key];
+    if (!data) return;
+
+    titleEl.textContent = data.title;
+    subEl.textContent = data.subtitle;
+    tabsEl.innerHTML = '';
+
+    data.tabs.forEach((tab, index) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'info-modal__tab' + (index === 0 ? ' is-active' : '');
+      btn.textContent = tab.label;
+      btn.addEventListener('click', () => {
+        tabsEl.querySelectorAll('.info-modal__tab').forEach(t => t.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        renderTab(tab);
+      });
+      tabsEl.appendChild(btn);
+    });
+
+    renderTab(data.tabs[0]);
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(trigger.dataset.servicio);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+})();

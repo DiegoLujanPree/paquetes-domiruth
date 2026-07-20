@@ -170,7 +170,7 @@
           <input type="number" id="qtyInput" value="1" min="1" max="10" aria-label="Cantidad">
           <button type="button" id="qtyPlus" aria-label="Aumentar cantidad">+</button>
         </div>
-        <button class="btn btn--primary" id="addToCartBtn">Agregar Pasajeros</button>
+        <span class="qty-label">Cantidad de pasajeros</span>
       </div>
       <button class="btn btn--secondary btn--full">Reservar ahora</button>
 
@@ -202,7 +202,7 @@
     <h2 class="servicios-title">DIAS CONFIRMADOS VUELOS & SERVICIOS</h2>
     <div class="servicios-box">
       
-      <a href="#info-general" class="servicio-item">
+      <a href="#info-general" class="servicio-item" data-servicio="info-general">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
           <line x1="9" y1="3" x2="9" y2="21"></line>
@@ -213,7 +213,7 @@
         <span>Información General</span>
       </a>
 
-      <a href="#que-visitar" class="servicio-item">
+      <a href="#que-visitar" class="servicio-item" data-servicio="que-visitar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="4" y="7" width="16" height="14" rx="2" ry="2"></rect>
           <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -223,7 +223,7 @@
         <span>¿Qué visitar?</span>
       </a>
 
-      <a href="#requisitos" class="servicio-item">
+      <a href="#requisitos" class="servicio-item" data-servicio="requisitos">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 17c-2 0-3-2-5-2s-3 2-5 2-3-2-5-2-3 2-5 2"></path>
           <path d="M22 21c-2 0-3-2-5-2s-3 2-5 2-3-2-5-2-3 2-5 2"></path>
@@ -232,6 +232,20 @@
           <path d="M18 3l1 1-1 1"></path>
         </svg>
         <span>Requisitos de entrada</span>
+      </a>
+
+      <a href="#hoteles-previstos" class="servicio-item" data-servicio="hoteles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21h18"></path>
+          <path d="M5 21V7l7-4 7 4v14"></path>
+          <path d="M9 11v.01"></path>
+          <path d="M15 11v.01"></path>
+          <path d="M12 11v.01"></path>
+          <path d="M9 15v.01"></path>
+          <path d="M15 15v.01"></path>
+          <path d="M12 15v.01"></path>
+        </svg>
+        <span>Hoteles Previstos</span>
       </a>
 
     </div>
@@ -636,6 +650,26 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ MODAL INFORMATIVO (Servicios Confirmados) ============ -->
+<div class="info-modal-overlay" id="infoModalOverlay">
+  <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+    <div class="info-modal__header">
+      <div>
+        <h3 class="info-modal__title" id="infoModalTitle">Título</h3>
+        <p class="info-modal__subtitle" id="infoModalSubtitle">Subtítulo</p>
+      </div>
+      <button class="info-modal__close" id="infoModalClose" type="button" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="info-modal__tabs" id="infoModalTabs"></div>
+    <div class="info-modal__body" id="infoModalBody"></div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
