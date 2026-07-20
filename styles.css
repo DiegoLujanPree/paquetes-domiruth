@@ -1391,10 +1391,44 @@ button{ font-family:inherit; cursor:pointer; }
   margin: 0;
 }
 
+/* Tarjetas de hoteles dentro del modal "Hoteles Previstos" */
+.hotel-modal-list{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hotel-modal-card{
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #fff;
+}
+.hotel-modal-card__img{
+  width: 38%;
+  flex-shrink: 0;
+  background: var(--bg-soft);
+}
+.hotel-modal-card__img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.hotel-modal-card__body{ padding: 16px 18px; flex:1; min-width:0; }
+.hotel-modal-card__body .badge{ position:static; display:inline-block; margin-bottom:8px; }
+.hotel-modal-card__place{
+  font-size: 12.5px; font-weight:600; color: var(--ink-soft);
+  margin: 0 0 4px;
+}
+.hotel-modal-card__body h4{
+  font-family: var(--font-display); font-size:15px; margin: 0 0 6px; color: var(--ink);
+}
+.hotel-modal-card__body p:not(.hotel-modal-card__place){
+  font-size: 13px; color: var(--ink-soft); line-height:1.5; margin: 0 0 10px;
+}
+
 @media (max-width: 640px){
   .info-modal{ max-height: 88vh; }
   .info-modal__header{ padding: 20px 20px 14px; }
   .info-modal__tabs{ padding: 0 20px; gap: 16px; }
   .info-modal__body{ padding: 18px 20px 24px; }
   .info-cards-grid{ grid-template-columns: 1fr; }
+  .hotel-modal-card{ flex-direction: column; }
+  .hotel-modal-card__img{ width:100%; height:160px; }
 }

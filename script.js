@@ -426,15 +426,93 @@ initInfiniteCarousel({
       subtitle: 'Alojamiento incluido en tu paquete',
       tabs: [
         {
-          label: 'Categoría Encanto',
-          content: `<div class="info-cards-grid">
-            <div class="info-card"><h4>🏨 Hoteles Encanto</h4><p>Hoteles de 3-4 estrellas con ubicación céntrica y atención personalizada. Desde S/ 9,999.00 por pasajero.</p></div>
+          label: 'España',
+          content: `<div class="hotel-modal-list">
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/Londres.jpg" alt="Hotel Encanto en Londres" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--oc">BARCELONA</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Encanto Londres</h4>
+                <p>Ubicación céntrica cerca de las principales estaciones, ideal para moverse a pie por la ciudad.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/paris.jpg" alt="Hotel Encanto en París" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--oc">MADRID</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Encanto París</h4>
+                <p>A pocos minutos del Sena, con atención personalizada y ambiente clásico parisino.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/venecia.jpg" alt="Hotel Encanto en Venecia" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--oc">FLORENCIA</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Encanto Venecia</h4>
+                <p>Alojamiento con encanto veneciano, próximo a los principales canales y vaporettos.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/roma.jpg" alt="Hotel Encanto en Roma" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--oc">PALMAS</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Encanto Roma</h4>
+                <p>Ubicación céntrica cercana a los sitios históricos, con atención cálida y personalizada.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
           </div>`
         },
         {
-          label: 'Categoría Superior',
-          content: `<div class="info-cards-grid">
-            <div class="info-card"><h4>🏨 Hoteles Superior</h4><p>Hoteles boutique de 4-5 estrellas con mayores comodidades y mejores vistas. Desde S/ 12,599.00 por pasajero.</p></div>
+          label: 'Francia',
+          content: `<div class="hotel-modal-list">
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/Londres3.jpg" alt="Hotel Superior en Londres" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--teal">PARIS</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Superior Londres</h4>
+                <p>Hotel boutique con mejores vistas y comodidades superiores en el centro de la ciudad.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/paris2.jpg" alt="Hotel Superior en París" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--teal">PARIS</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Superior París</h4>
+                <p>Mayores comodidades y ubicación privilegiada cerca de los principales atractivos.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/venecia-2.jpg" alt="Hotel Superior en Venecia" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--teal">PARIS</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Superior Venecia</h4>
+                <p>Hotel boutique de 4-5 estrellas con vistas privilegiadas sobre los canales.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
+            <article class="hotel-modal-card">
+              <div class="hotel-modal-card__img"><img src="img/PAQUETE/roma2.jpg" alt="Hotel Superior en Roma" onerror="this.style.display='none'"></div>
+              <div class="hotel-modal-card__body">
+                <span class="badge badge--teal">PARIS</span>
+                <p class="hotel-modal-card__place">Hotel ✰✰✰✰</p>
+                <h4>Hotel Superior Roma</h4>
+                <p>Comodidades superiores y excelente ubicación cerca de los sitios más emblemáticos.</p>
+                <span class="price-now price-now--sm">4 días y 3 noches<small></span>
+              </div>
+            </article>
           </div>`
         }
       ]
