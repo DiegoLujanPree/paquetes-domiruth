@@ -115,14 +115,16 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .header-top__inner strong{ color:#fff; }
 
-.header-main{ border-bottom: 1px solid var(--line); }
+.header-main{
+  background-color: var(--accent); 
+  border-bottom: none; }
 .header-main__inner{
   display:flex; align-items:center; gap: 32px;
   padding: 18px 24px;
 }
 .logo{ display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .logo img {
-  height: 55px; /* Aumenta este número a 40px, 45px o 50px hasta que tenga el tamaño que te guste */
+  height: 60px; /* Aumenta este número a 40px, 45px o 50px hasta que tenga el tamaño que te guste */
   width: auto;  /* Esto asegura que la proporción se mantenga bien */
 }
 .logo__text{
@@ -153,11 +155,13 @@ button{ font-family:inherit; cursor:pointer; }
 
 .header-actions{ display:flex; align-items:center; gap: 22px; flex-shrink:0; }
 .header-icon{
-  display:flex; flex-direction:column; align-items:center; gap:2px;
-  font-size: 11.5px; color: var(--ink-soft); font-weight:500;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font-size: 11.5px; color: #ffffff; 
+  font-weight: 500;
   position: relative;
 }
-.header-icon:hover{ color: var(--accent); }
+.header-icon:hover{ color: #ffffff; 
+  opacity: 0.8; }
 .header-icon--cart .cart-count{
   position:absolute; top:-6px; right:-10px;
   background: var(--coral); color:#fff;
@@ -166,14 +170,35 @@ button{ font-family:inherit; cursor:pointer; }
   display:flex; align-items:center; justify-content:center;
 }
 
-.main-nav{ background: var(--bg-soft); }
-.main-nav__inner{
-  display:flex; gap: 28px; padding: 12px 24px;
-  font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
-  overflow-x:auto;
+.main-nav{ 
+  background: var(--bg-soft); /* Puedes cambiarlo a #ffffff si lo quieres totalmente blanco */
+  border-bottom: 1px solid var(--line);
 }
-.main-nav__inner a:hover{ color: var(--accent); }
+.main-nav__inner{
+  display: flex; gap: 28px; padding: 12px 24px;
+  font-size: 13.5px; font-weight: 600; 
+  color: var(--ink-soft); /* Restauramos el color gris oscuro del texto */
+  overflow-x: auto;
+}
+.main-nav__inner a:hover{ 
+  color: var(--accent); /* Al pasar el mouse se vuelve rojo */
+  opacity: 1;
+}
 .nav-highlight{ color: var(--coral) !important; }
+
+/* Tamaño y ajuste de los nuevos iconos de imagen */
+.custom-icon {
+  width: 30px;  /* Ajusta este valor si quieres los iconos más grandes o pequeños */
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Reposicionar la burbuja roja del carrito para que encaje con la imagen */
+.header-icon--cart .cart-count {
+  position: absolute;
+  top: -6px; 
+  right: -10px;
+}
 
 /* =========================================================
    BREADCRUMB
@@ -1053,7 +1078,7 @@ button{ font-family:inherit; cursor:pointer; }
   /* Esconder acciones en header y mostrar botón hamburguesa */
   .header-actions { display: none; }
   .mobile-menu-btn { display: flex; flex-direction: column; gap: 4px; border: none; background: none; }
-  .mobile-menu-btn span { width: 25px; height: 3px; background: var(--ink); }
+  .mobile-menu-btn span { width: 25px; height: 3px; background: #ffffff; }
   
   /* Estilo menú desplegable */
   .main-nav { display: none; position: absolute; width: 100%; background: #fff; z-index: 100; border-top: 1px solid var(--line); }
@@ -1431,4 +1456,9 @@ button{ font-family:inherit; cursor:pointer; }
   .info-cards-grid{ grid-template-columns: 1fr; }
   .hotel-modal-card{ flex-direction: column; }
   .hotel-modal-card__img{ width:100%; height:160px; }
+}
+
+/* 1. Agregar el fondo rojo a todo el contenedor principal */
+.site-header {
+  background-color: transparent; 
 }

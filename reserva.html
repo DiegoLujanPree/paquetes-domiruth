@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserva tu viaje | Domiruth Travel Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="reserva.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+
+  <div class="header-main">
+    <div class="container header-main__inner">
+      <a href="index.html" class="logo">
+        <img src="img/LOGOS-02.png" alt="Logo">
+      </a>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar...">
+        <button aria-label="Buscar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+      <div class="header-actions show-desktop">
+        <a href="#" class="header-icon">
+          <img src="img/icono-02.png" alt="Ingresar" class="custom-icon">
+        </a>
+        <a href="#" class="header-icon header-icon--cart">
+          <img src="img/icono-03.png" alt="Carrito" class="custom-icon">
+          <span class="cart-count" id="headerCartCount">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav" id="mainNav">
+    <div class="container main-nav__inner">
+      <div class="mobile-only mobile-user-actions">
+         <a href="#">Ingresar</a>
+         <a href="#">Carrito (2)</a>
+      </div>
+      <a href="index.html#" class="nav-btn">Vuelos</a>
+      <a href="index.html#" class="nav-btn">Hoteles</a>
+      <a href="index.html#" class="nav-btn">Ofertas Imperdibles</a>
+      <a href="index.html#" class="nav-btn">Destinos Asia</a>
+      <a href="index.html#" class="nav-btn">Destinos Sudamerica</a>
+      <a href="index.html#" class="nav-btn">Saca tu Visa</a>
+      <a href="index.html#" class="nav-btn nav-highlight">Ofertas Europa</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container reserva-page">
+
+  <!-- ============ BREADCRUMB ============ -->
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <a href="index.html">Inicio</a>
+    <span>/</span>
+    <a href="index.html">Paquetes</a>
+    <span>/</span>
+    <span class="breadcrumb__current" id="breadcrumbTitle">Reserva tu viaje</span>
+  </nav>
+
+  <!-- ============ STEPPER ============ -->
+  <div class="reserva-stepper" id="reservaStepper">
+    <button class="stepper-item is-active" type="button" data-step="1">
+      <span class="stepper-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+      </span>
+      <span class="stepper-label">Datos de Pasajeros</span>
+    </button>
+    <span class="stepper-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+    </span>
+    <button class="stepper-item" type="button" data-step="2">
+      <span class="stepper-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"></rect><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+      </span>
+      <span class="stepper-label">Equipaje</span>
+    </button>
+    <span class="stepper-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+    </span>
+    <button class="stepper-item" type="button" data-step="3">
+      <span class="stepper-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg>
+      </span>
+      <span class="stepper-label">Alojamiento</span>
+    </button>
+    <span class="stepper-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+    </span>
+    <button class="stepper-item" type="button" data-step="4">
+      <span class="stepper-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>
+      </span>
+      <span class="stepper-label">Zona de Pago</span>
+    </button>
+  </div>
+
+  <!-- ============ CONTENIDO RESERVA ============ -->
+  <div class="reserva-layout">
+
+    <!-- ---------- COLUMNA IZQUIERDA: PASOS ---------- -->
+    <div class="reserva-main">
+
+      <!-- PASO 1: DATOS DE PASAJEROS -->
+      <section class="reserva-step is-active" data-step-panel="1">
+
+        <div class="passenger-list" id="passengerList">
+          <!-- Los bloques de pasajero se generan/clonan por JS a partir de esta plantilla -->
+          <div class="passenger-accordion is-open" data-passenger-index="1">
+            <button class="passenger-accordion__header" type="button" data-passenger-toggle>
+              <span class="passenger-accordion__title">Pasajero Adulto 1</span>
+              <svg class="passenger-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="passenger-accordion__body">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Nombres</label>
+                  <input type="text" name="nombres" placeholder="Ej. Diego" required>
+                </div>
+                <div class="form-field">
+                  <label>Apellidos</label>
+                  <input type="text" name="apellidos" placeholder="Ej. Luján" required>
+                </div>
+                <div class="form-field">
+                  <label>Tipo de documento</label>
+                  <select name="tipoDocumento">
+                    <option value="dni">Documento nacional (DNI)</option>
+                    <option value="ce">Carné de extranjería</option>
+                    <option value="pasaporte">Pasaporte</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Número de documento</label>
+                  <input type="text" name="numeroDocumento" placeholder="73067018" required>
+                </div>
+                <div class="form-field">
+                  <label>País de residencia</label>
+                  <input type="text" name="paisResidencia" placeholder="Perú" value="Perú" required>
+                </div>
+                <div class="form-field form-field--date">
+                  <label>Fecha de Nacimiento</label>
+                  <div class="date-input-wrap" data-datepicker>
+                    <input type="text" name="fechaNacimiento" class="date-input" placeholder="dd/mm/aaaa" autocomplete="off" readonly>
+                    <button type="button" class="date-input__icon" aria-label="Abrir calendario">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="16" y1="3" x2="16" y2="7"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Género</label>
+                  <select name="genero">
+                    <option value="">Selecciona...</option>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Número de celular</label>
+                  <input type="tel" name="celular" placeholder="999 999 999">
+                </div>
+                <div class="form-field form-field--full">
+                  <label>Correo</label>
+                  <input type="email" name="correo" placeholder="nombre@correo.com" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="add-passenger-btn" type="button" id="addPassengerBtn">
+          <span class="add-passenger-btn__icon">+</span> Añadir pasajero
+        </button>
+
+        <div class="reserva-actions">
+          <a href="index.html" class="btn btn--outline" id="step1Back">Retroceder</a>
+          <button class="btn btn--secondary" type="button" data-go-next="2">Continuar</button>
+        </div>
+      </section>
+
+      <!-- PASO 2: EQUIPAJE -->
+      <section class="reserva-step" data-step-panel="2">
+        <p class="step-intro">Elige el equipaje que llevará cada pasajero. Puedes seleccionar una sola opción por pasajero.</p>
+
+        <div class="luggage-tabs" id="luggageTabs"></div>
+
+        <div class="luggage-grid" id="luggageGrid">
+          <button class="luggage-card" type="button" data-luggage-id="mano" data-price="0">
+            <span class="luggage-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="12" height="13" rx="1.5"></rect><path d="M9.5 8V6a2.5 2.5 0 0 1 5 0v2"></path><line x1="10" y1="12" x2="10" y2="17"></line><line x1="14" y1="12" x2="14" y2="17"></line></svg>
+            </span>
+            <span class="luggage-card__title">Equipaje 1<br>Personal</span>
+            <span class="luggage-card__desc">1 bolso o mochila pequeña · 40x30x15 cm · debajo del asiento</span>
+            <span class="luggage-card__price">Incluido</span>
+            <span class="luggage-card__cta">Seleccionar</span>
+          </button>
+
+          <button class="luggage-card" type="button" data-luggage-id="cabina" data-price="45">
+            <span class="luggage-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="14" height="16" rx="2"></rect><path d="M9 6V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V6"></path><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+            <span class="luggage-card__title">Equipaje 2<br>En cabina</span>
+            <span class="luggage-card__desc">1 maleta de cabina · hasta 8 kg · 55x35x25 cm</span>
+            <span class="luggage-card__price">USD 45.00</span>
+            <span class="luggage-card__cta">Seleccionar</span>
+          </button>
+
+          <button class="luggage-card" type="button" data-luggage-id="facturado" data-price="80">
+            <span class="luggage-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="15" rx="2"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><line x1="4" y1="13" x2="20" y2="13"></line><line x1="10" y1="16" x2="14" y2="16"></line></svg>
+            </span>
+            <span class="luggage-card__title">Equipaje 3<br>Facturado</span>
+            <span class="luggage-card__desc">1 maleta facturada · hasta 23 kg</span>
+            <span class="luggage-card__price">USD 80.00</span>
+            <span class="luggage-card__cta">Seleccionar</span>
+          </button>
+        </div>
+
+        <div class="reserva-actions">
+          <button class="btn btn--outline" type="button" data-go-next="1">Retroceder</button>
+          <button class="btn btn--secondary" type="button" data-go-next="3">Continuar</button>
+        </div>
+      </section>
+
+      <!-- PASO 3: ALOJAMIENTO -->
+      <section class="reserva-step" data-step-panel="3">
+        <p class="step-intro">Alojamiento incluido en tu paquete. Estos son los hoteles previstos para tu itinerario.</p>
+
+        <div class="hotel-tabs" id="hotelTabs">
+          <button class="hotel-tab is-active" type="button" data-hotel-tab="espana">España</button>
+          <button class="hotel-tab" type="button" data-hotel-tab="francia">Francia</button>
+        </div>
+
+        <div class="hotel-grid" data-hotel-panel="espana">
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/Londres.jpg" alt="Hotel Encanto Londres" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--oc">BARCELONA</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Encanto Londres</h4>
+              <p>Ubicación céntrica cerca de las principales estaciones, ideal para moverse a pie por la ciudad.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/paris.jpg" alt="Hotel Encanto París" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--oc">MADRID</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Encanto París</h4>
+              <p>A pocos minutos del Sena, con atención personalizada y ambiente clásico parisino.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/venecia.jpg" alt="Hotel Encanto Venecia" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--oc">FLORENCIA</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Encanto Venecia</h4>
+              <p>Alojamiento con encanto veneciano, próximo a los principales canales y vaporettos.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/roma.jpg" alt="Hotel Encanto Roma" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--oc">PALMAS</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Encanto Roma</h4>
+              <p>Ubicación céntrica cercana a los sitios históricos, con atención cálida y personalizada.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="hotel-grid" data-hotel-panel="francia" hidden>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/Londres3.jpg" alt="Hotel Superior Londres" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--teal">PARIS</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Superior Londres</h4>
+              <p>Hotel boutique con mejores vistas y comodidades superiores en el centro de la ciudad.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/paris2.jpg" alt="Hotel Superior París" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--teal">PARIS</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Superior París</h4>
+              <p>Mayores comodidades y ubicación privilegiada cerca de los principales atractivos.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/venecia-2.jpg" alt="Hotel Superior Venecia" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--teal">PARIS</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Superior Venecia</h4>
+              <p>Hotel boutique de 4-5 estrellas con vistas privilegiadas sobre los canales.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+          <article class="hotel-card">
+            <div class="hotel-card__img"><img src="img/PAQUETE/roma2.jpg" alt="Hotel Superior Roma" onerror="this.style.display='none'"></div>
+            <div class="hotel-card__body">
+              <span class="badge badge--teal">PARIS</span>
+              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
+              <h4>Hotel Superior Roma</h4>
+              <p>Comodidades superiores y excelente ubicación cerca de los sitios más emblemáticos.</p>
+              <span class="hotel-card__nights">4 días y 3 noches</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="reserva-actions">
+          <button class="btn btn--outline" type="button" data-go-next="2">Retroceder</button>
+          <button class="btn btn--secondary" type="button" data-go-next="4">Continuar</button>
+        </div>
+      </section>
+
+      <!-- PASO 4: ZONA DE PAGO -->
+      <section class="reserva-step" data-step-panel="4">
+
+        <div class="billing-box">
+          <h3 class="pago-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7z"></path><path d="M15 3v5h5"></path><line x1="9" y1="13" x2="17" y2="13"></line><line x1="9" y1="17" x2="14" y2="17"></line></svg>
+            Facturación e impuestos
+          </h3>
+
+          <label class="billing-option is-active" data-billing-option="boleta">
+            <span class="billing-option__head">
+              <span class="billing-option__radio"></span>
+              <input type="radio" name="billing" value="boleta" checked>
+              <strong>Boleta</strong>
+            </span>
+            <span class="billing-option__fields">
+              <span class="form-field">
+                <label>Tipo de documento</label>
+                <select name="boletaTipoDoc">
+                  <option value="dni">DNI</option>
+                  <option value="ce">Carné de extranjería</option>
+                </select>
+              </span>
+              <span class="form-field">
+                <label>DNI</label>
+                <input type="text" name="boletaDni" placeholder="73067018">
+              </span>
+            </span>
+          </label>
+
+          <label class="billing-option" data-billing-option="factura">
+            <span class="billing-option__head">
+              <span class="billing-option__radio"></span>
+              <input type="radio" name="billing" value="factura">
+              <strong>Factura</strong>
+            </span>
+            <span class="billing-option__fields">
+              <span class="form-field">
+                <label>RUC</label>
+                <input type="text" name="ruc" placeholder="20123456789">
+              </span>
+              <span class="form-field">
+                <label>Nombre de la empresa</label>
+                <input type="text" name="razonSocial" placeholder="Nombre de la empresa">
+              </span>
+            </span>
+          </label>
+        </div>
+
+        <div class="card-box">
+          <h3 class="pago-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>
+            Datos de la tarjeta
+          </h3>
+          <div class="card-box__notice">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><circle cx="12" cy="8" r="0.6" fill="currentColor"></circle></svg>
+            <span>Activa compras por internet en la app de tu banco o llamando al teléfono que está en la tarjeta.</span>
+          </div>
+
+          <div class="form-field">
+            <label>Número de tarjeta</label>
+            <div class="card-number-wrap">
+              <input type="text" name="numeroTarjeta" placeholder="0000 0000 0000 0000" inputmode="numeric" maxlength="19">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Nombre del titular</label>
+            <input type="text" name="nombreTitular" placeholder="Ej.: María López">
+            <span class="field-hint">Como aparece en la tarjeta.</span>
+          </div>
+          <div class="form-grid form-grid--2">
+            <div class="form-field">
+              <label>Vencimiento</label>
+              <input type="text" name="vencimiento" placeholder="MM/AA" maxlength="5">
+            </div>
+            <div class="form-field">
+              <label>Código de seguridad</label>
+              <input type="text" name="cvv" placeholder="000" inputmode="numeric" maxlength="4">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Documento del titular</label>
+            <div class="doc-titular-wrap">
+              <select name="docTitularTipo">
+                <option value="dni">DNI</option>
+                <option value="ce">CE</option>
+                <option value="pasaporte">Pasaporte</option>
+              </select>
+              <input type="text" name="docTitularNumero" placeholder="00.000.000">
+            </div>
+          </div>
+        </div>
+
+        <div class="reserva-actions">
+          <button class="btn btn--outline" type="button" data-go-next="3">Retroceder</button>
+          <button class="btn btn--secondary" type="button" id="payBtn">Pagar</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ---------- COLUMNA DERECHA: RESUMEN ---------- -->
+    <aside class="reserva-summary">
+      <div class="summary-card" id="summaryCard">
+
+        <!-- Este botón sólo es visible en móvil (ver reserva.css). En escritorio el resumen se ve siempre completo. -->
+        <button class="package-details__toggle" type="button" id="packageDetailsToggle" aria-expanded="false" aria-controls="packageDetailsBody">
+          <span>Detalles del paquete</span>
+          <svg class="package-details__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="package-details__body" id="packageDetailsBody">
+          <div class="summary-card__img" id="summaryImg">FOTO</div>
+          <h3 class="summary-card__title" id="summaryTitle">EUROPA MAGICA DESDE LONDRES FLY</h3>
+          <p class="summary-card__desc">19 Días + 18 noches recorriendo Londres, París, Venecia, Florencia, Roma, Barcelona y Madrid. Incluye vuelos, traslados, hoteles y visitas guiadas.</p>
+
+          <ul class="summary-card__meta">
+            <li><span>Fecha de salida</span><strong id="summaryDates">06 nov al 24 nov 2026</strong></li>
+            <li><span>Pasajeros</span><strong id="summaryPax">1</strong></li>
+          </ul>
+
+          <div class="summary-card__price">
+            <div class="summary-card__row">
+              <span>Subtotal pasajeros</span>
+              <span id="summarySubtotal">$ 4,588.00</span>
+            </div>
+            <div class="summary-card__row" id="summaryLuggageRow" hidden>
+              <span>Equipaje adicional</span>
+              <span id="summaryLuggage">$ 0.00</span>
+            </div>
+            <div class="summary-card__row summary-card__row--total">
+              <span>Total</span>
+              <span id="summaryTotal">$ 4,588.00</span>
+            </div>
+            <p class="summary-card__note">Ó S/ <span id="summaryTotalPEN">15,599.20</span></p>
+          </div>
+
+          <button class="btn btn--outline btn--full" type="button" id="downloadItineraryBtn">Descargar Itinerario</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+</footer>
+<footer class="site-footer domiruth-footer">
+  <div class="container">
+
+    <div class="domiruth-footer__top">
+      <div class="domiruth-footer__social">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+      <div class="domiruth-footer__sales">
+        Para ventas <strong>610 - 6000</strong> (opción 2, vacaciones)
+      </div>
+    </div>
+
+    <div class="domiruth-footer__grid">
+      <div class="domiruth-col">
+        <h4>Contáctanos</h4>
+        <p>Destinos Internacionales</p>
+        <p>WhatsApp<br><strong>(51) 999 993 675</strong></p>
+        <p>Email<br><strong>vacaciones@domiruth.pe</strong></p>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Horario de Atención</h4>
+        <p>Lun. a Vier. 9:00 am a 7:00 pm</p>
+        <p>Sab. 9:00 am a 3:00 pm</p>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Horario Fuera de Oficina</h4>
+        <p>Lun. a Vier. 7:00 pm a 9:00 am</p>
+        <p>Dom. a Sab. 24hrs</p>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Oficina</h4>
+        <p>Ubicación Av. Petit Thouars 4305 Miraflores</p>
+        <p>Lima, Perú</p>
+        <a href="#" class="domiruth-link">¿Cómo llegar?</a>
+      </div>
+
+      <div class="domiruth-col">
+        <h4>Reclamaciones</h4>
+        <a href="#" class="domiruth-link">Libro de Reclamaciones</a>
+      </div>
+    </div>
+
+    <div class="domiruth-footer__bottom">
+      <div class="domiruth-brands">
+        <span>DSS</span>
+        <span>Pago Cupo</span>
+        <span>Visa Int</span>
+        <span>ISO</span>
+        <span>APA</span>
+        <span>IATA</span>
+        <span>NaviCorp</span>
+      </div>
+      <p class="domiruth-copy">Copyright Domiruth Travel Service, S.A. 2020. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL DE ÉXITO ============ -->
+<div class="success-modal-overlay" id="successModalOverlay">
+  <div class="success-modal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+    <div class="success-modal__icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12.5 11 15.5 16 9"></polyline></svg>
+    </div>
+    <h3 id="successModalTitle">¡Reserva realizada con éxito!</h3>
+    <p>Hemos recibido tu solicitud de reserva correctamente. En breve recibirás un correo con el resumen de tu compra y los siguientes pasos.</p>
+    <button class="btn btn--secondary" type="button" id="successModalClose">Volver al inicio</button>
+  </div>
+</div>
+
+<script src="reserva.js"></script>
+</body>
+</html>

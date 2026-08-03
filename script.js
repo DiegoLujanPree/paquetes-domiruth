@@ -190,6 +190,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+/* ---------- Botón "Reservar ahora" → va a la zona de compra y reserva ---------- */
+const reservarAhoraBtn = document.getElementById('reservarAhoraBtn');
+if (reservarAhoraBtn) {
+  reservarAhoraBtn.addEventListener('click', () => {
+    const qtyEl = document.getElementById('qtyInput');
+    const priceBoxEl = document.getElementById('priceBox');
+    const titleEl = document.querySelector('.product__title');
+
+    const qty = qtyEl ? (parseInt(qtyEl.value, 10) || 1) : 1;
+    const priceUsd = priceBoxEl ? priceBoxEl.dataset.priceUsd : '4588';
+    const rate = priceBoxEl ? priceBoxEl.dataset.exchangeRate : '3.40';
+    const title = titleEl ? titleEl.textContent.trim() : '';
+
+    const params = new URLSearchParams({
+      qty: qty,
+      priceUsd: priceUsd,
+      rate: rate,
+      title: title,
+      dates: '06 nov al 24 nov 2026'
+    });
+
+    window.location.href = `reserva.html?${params.toString()}`;
+  });
+}
+
 /* ---------- Menú hamburguesa móvil ---------- */
 const menuBtn = document.getElementById('mobileMenuBtn');
 const mainNav = document.getElementById('mainNav');

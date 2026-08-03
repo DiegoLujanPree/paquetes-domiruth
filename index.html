@@ -12,15 +12,11 @@
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
-  <a href="#" class="header-top-banner">
-    <img src="img/discount-package.png" class="banner-desktop" alt="Banner promo escritorio">
-    <img src="img/barramovil.jpg" class="banner-mobile" alt="Banner promo móvil">
-  </a>
 
   <div class="header-main">
     <div class="container header-main__inner">
       <a href="https://vacation.domiruth.com/" class="logo">
-        <img src="img/LOGOS-01.png" alt="Logo">
+        <img src="img/LOGOS-02.png" alt="Logo">
       </a>
       <div class="search-bar">
         <input type="text" placeholder="Buscar...">
@@ -28,8 +24,18 @@
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
       <div class="header-actions show-desktop">
-        <a href="#" class="header-icon">Ingresar</a>
-        <a href="#" class="header-icon header-icon--cart">Carrito<span class="cart-count">2</span></a>
+        <!-- Icono de Ingresar -->
+        <a href="#" class="header-icon">
+          <!-- Asegúrate de cambiar "tu-icono-login.png" por el nombre real de tu imagen -->
+          <img src="img/icono-02.png" alt="Ingresar" class="custom-icon">
+        </a>
+        
+        <!-- Icono de Carrito -->
+        <a href="#" class="header-icon header-icon--cart">
+          <!-- Asegúrate de cambiar "tu-icono-carrito.png" por el nombre real de tu imagen -->
+          <img src="img/icono-03.png" alt="Carrito" class="custom-icon">
+          <span class="cart-count">2</span>
+        </a>
       </div>
     </div>
   </div>
@@ -61,7 +67,7 @@
     <span>/</span>
     <a href="#">Destinos Europa</a>
     <span>/</span>
-    <span class="breadcrumb__current">EUROPA MAGICA DESDE LONDRES FLY</span>
+    <span class="breadcrumb__current">EUROPA MAGICA DESDE LONDRES</span>
   </nav>
 
   <!-- ============ PRODUCTO PRINCIPAL ============ -->
@@ -155,7 +161,7 @@
         </div>
         <span class="qty-label">Cantidad de pasajeros</span>
       </div>
-      <button class="btn btn--secondary btn--full">Reservar ahora</button>
+      <button class="btn btn--secondary btn--full" id="reservarAhoraBtn">Reservar ahora</button>
 
       <ul class="quick-specs">
         <li><span>Destinos</span><strong>Londres, París, Venecia, Florencia, Roma, Barcelona y Madrid</strong></li>
