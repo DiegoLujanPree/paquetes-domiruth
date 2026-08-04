@@ -64,6 +64,12 @@
     <span class="breadcrumb__current" id="breadcrumbTitle">Reserva tu viaje</span>
   </nav>
 
+  <!-- Botón "Detalles del paquete": sólo visible en móvil (ver reserva.css). En escritorio permanece oculto y el resumen se ve siempre completo a la derecha. -->
+  <button class="package-details__toggle" type="button" id="packageDetailsToggle" aria-expanded="false" aria-controls="packageDetailsBody">
+    <span>Detalles del paquete</span>
+    <svg class="package-details__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
   <!-- ============ STEPPER ============ -->
   <div class="reserva-stepper" id="reservaStepper">
     <button class="stepper-item is-active" type="button" data-step="1">
@@ -76,24 +82,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
     <button class="stepper-item" type="button" data-step="2">
-      <span class="stepper-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"></rect><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
-      </span>
-      <span class="stepper-label">Equipaje</span>
-    </button>
-    <span class="stepper-arrow" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
-    </span>
-    <button class="stepper-item" type="button" data-step="3">
-      <span class="stepper-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg>
-      </span>
-      <span class="stepper-label">Alojamiento</span>
-    </button>
-    <span class="stepper-arrow" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
-    </span>
-    <button class="stepper-item" type="button" data-step="4">
       <span class="stepper-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>
       </span>
@@ -183,153 +171,8 @@
         </div>
       </section>
 
-      <!-- PASO 2: EQUIPAJE -->
+      <!-- PASO 2: ZONA DE PAGO -->
       <section class="reserva-step" data-step-panel="2">
-        <p class="step-intro">Elige el equipaje que llevará cada pasajero. Puedes seleccionar una sola opción por pasajero.</p>
-
-        <div class="luggage-tabs" id="luggageTabs"></div>
-
-        <div class="luggage-grid" id="luggageGrid">
-          <button class="luggage-card" type="button" data-luggage-id="mano" data-price="0">
-            <span class="luggage-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="12" height="13" rx="1.5"></rect><path d="M9.5 8V6a2.5 2.5 0 0 1 5 0v2"></path><line x1="10" y1="12" x2="10" y2="17"></line><line x1="14" y1="12" x2="14" y2="17"></line></svg>
-            </span>
-            <span class="luggage-card__title">Equipaje 1<br>Personal</span>
-            <span class="luggage-card__desc">1 bolso o mochila pequeña · 40x30x15 cm · debajo del asiento</span>
-            <span class="luggage-card__price">Incluido</span>
-            <span class="luggage-card__cta">Seleccionar</span>
-          </button>
-
-          <button class="luggage-card" type="button" data-luggage-id="cabina" data-price="45">
-            <span class="luggage-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="14" height="16" rx="2"></rect><path d="M9 6V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V6"></path><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            </span>
-            <span class="luggage-card__title">Equipaje 2<br>En cabina</span>
-            <span class="luggage-card__desc">1 maleta de cabina · hasta 8 kg · 55x35x25 cm</span>
-            <span class="luggage-card__price">USD 45.00</span>
-            <span class="luggage-card__cta">Seleccionar</span>
-          </button>
-
-          <button class="luggage-card" type="button" data-luggage-id="facturado" data-price="80">
-            <span class="luggage-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="15" rx="2"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><line x1="4" y1="13" x2="20" y2="13"></line><line x1="10" y1="16" x2="14" y2="16"></line></svg>
-            </span>
-            <span class="luggage-card__title">Equipaje 3<br>Facturado</span>
-            <span class="luggage-card__desc">1 maleta facturada · hasta 23 kg</span>
-            <span class="luggage-card__price">USD 80.00</span>
-            <span class="luggage-card__cta">Seleccionar</span>
-          </button>
-        </div>
-
-        <div class="reserva-actions">
-          <button class="btn btn--outline" type="button" data-go-next="1">Retroceder</button>
-          <button class="btn btn--secondary" type="button" data-go-next="3">Continuar</button>
-        </div>
-      </section>
-
-      <!-- PASO 3: ALOJAMIENTO -->
-      <section class="reserva-step" data-step-panel="3">
-        <p class="step-intro">Alojamiento incluido en tu paquete. Estos son los hoteles previstos para tu itinerario.</p>
-
-        <div class="hotel-tabs" id="hotelTabs">
-          <button class="hotel-tab is-active" type="button" data-hotel-tab="espana">España</button>
-          <button class="hotel-tab" type="button" data-hotel-tab="francia">Francia</button>
-        </div>
-
-        <div class="hotel-grid" data-hotel-panel="espana">
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/Londres.jpg" alt="Hotel Encanto Londres" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--oc">BARCELONA</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Encanto Londres</h4>
-              <p>Ubicación céntrica cerca de las principales estaciones, ideal para moverse a pie por la ciudad.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/paris.jpg" alt="Hotel Encanto París" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--oc">MADRID</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Encanto París</h4>
-              <p>A pocos minutos del Sena, con atención personalizada y ambiente clásico parisino.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/venecia.jpg" alt="Hotel Encanto Venecia" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--oc">FLORENCIA</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Encanto Venecia</h4>
-              <p>Alojamiento con encanto veneciano, próximo a los principales canales y vaporettos.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/roma.jpg" alt="Hotel Encanto Roma" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--oc">PALMAS</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Encanto Roma</h4>
-              <p>Ubicación céntrica cercana a los sitios históricos, con atención cálida y personalizada.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="hotel-grid" data-hotel-panel="francia" hidden>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/Londres3.jpg" alt="Hotel Superior Londres" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--teal">PARIS</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Superior Londres</h4>
-              <p>Hotel boutique con mejores vistas y comodidades superiores en el centro de la ciudad.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/paris2.jpg" alt="Hotel Superior París" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--teal">PARIS</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Superior París</h4>
-              <p>Mayores comodidades y ubicación privilegiada cerca de los principales atractivos.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/venecia-2.jpg" alt="Hotel Superior Venecia" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--teal">PARIS</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Superior Venecia</h4>
-              <p>Hotel boutique de 4-5 estrellas con vistas privilegiadas sobre los canales.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-          <article class="hotel-card">
-            <div class="hotel-card__img"><img src="img/PAQUETE/roma2.jpg" alt="Hotel Superior Roma" onerror="this.style.display='none'"></div>
-            <div class="hotel-card__body">
-              <span class="badge badge--teal">PARIS</span>
-              <p class="hotel-card__stars">Hotel ✰✰✰✰</p>
-              <h4>Hotel Superior Roma</h4>
-              <p>Comodidades superiores y excelente ubicación cerca de los sitios más emblemáticos.</p>
-              <span class="hotel-card__nights">4 días y 3 noches</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="reserva-actions">
-          <button class="btn btn--outline" type="button" data-go-next="2">Retroceder</button>
-          <button class="btn btn--secondary" type="button" data-go-next="4">Continuar</button>
-        </div>
-      </section>
-
-      <!-- PASO 4: ZONA DE PAGO -->
-      <section class="reserva-step" data-step-panel="4">
 
         <div class="billing-box">
           <h3 class="pago-section__title">
@@ -380,50 +223,83 @@
         <div class="card-box">
           <h3 class="pago-section__title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>
-            Datos de la tarjeta
+            Método de pago
           </h3>
-          <div class="card-box__notice">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><circle cx="12" cy="8" r="0.6" fill="currentColor"></circle></svg>
-            <span>Activa compras por internet en la app de tu banco o llamando al teléfono que está en la tarjeta.</span>
-          </div>
 
-          <div class="form-field">
-            <label>Número de tarjeta</label>
-            <div class="card-number-wrap">
-              <input type="text" name="numeroTarjeta" placeholder="0000 0000 0000 0000" inputmode="numeric" maxlength="19">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-            </div>
-          </div>
-          <div class="form-field">
-            <label>Nombre del titular</label>
-            <input type="text" name="nombreTitular" placeholder="Ej.: María López">
-            <span class="field-hint">Como aparece en la tarjeta.</span>
-          </div>
-          <div class="form-grid form-grid--2">
-            <div class="form-field">
-              <label>Vencimiento</label>
-              <input type="text" name="vencimiento" placeholder="MM/AA" maxlength="5">
-            </div>
-            <div class="form-field">
-              <label>Código de seguridad</label>
-              <input type="text" name="cvv" placeholder="000" inputmode="numeric" maxlength="4">
-            </div>
-          </div>
-          <div class="form-field">
-            <label>Documento del titular</label>
-            <div class="doc-titular-wrap">
-              <select name="docTitularTipo">
-                <option value="dni">DNI</option>
-                <option value="ce">CE</option>
-                <option value="pasaporte">Pasaporte</option>
-              </select>
-              <input type="text" name="docTitularNumero" placeholder="00.000.000">
-            </div>
+          <div class="payment-methods" id="paymentMethods">
+
+            <label class="payment-option is-active" data-payment-option="tarjeta">
+              <span class="payment-option__head">
+                <span class="payment-option__radio"></span>
+                <input type="radio" name="metodoPago" value="tarjeta" checked>
+                <svg class="payment-option__icon payment-option__icon--svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                <strong>Datos de la tarjeta</strong>
+              </span>
+              <span class="payment-option__body">
+                <div class="card-box__notice">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><circle cx="12" cy="8" r="0.6" fill="currentColor"></circle></svg>
+                  <span>Activa compras por internet en la app de tu banco o llamando al teléfono que está en la tarjeta.</span>
+                </div>
+
+                <div class="form-field">
+                  <label>Número de tarjeta</label>
+                  <div class="card-number-wrap">
+                    <input type="text" name="numeroTarjeta" placeholder="0000 0000 0000 0000" inputmode="numeric" maxlength="19">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Nombre del titular</label>
+                  <input type="text" name="nombreTitular" placeholder="Ej.: María López">
+                  <span class="field-hint">Como aparece en la tarjeta.</span>
+                </div>
+                <div class="form-grid form-grid--2">
+                  <div class="form-field">
+                    <label>Vencimiento</label>
+                    <input type="text" name="vencimiento" placeholder="MM/AA" maxlength="5">
+                  </div>
+                  <div class="form-field">
+                    <label>Código de seguridad</label>
+                    <input type="text" name="cvv" placeholder="000" inputmode="numeric" maxlength="4">
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Documento del titular</label>
+                  <div class="doc-titular-wrap">
+                    <select name="docTitularTipo">
+                      <option value="dni">DNI</option>
+                      <option value="ce">CE</option>
+                      <option value="pasaporte">Pasaporte</option>
+                    </select>
+                    <input type="text" name="docTitularNumero" placeholder="00.000.000">
+                  </div>
+                </div>
+              </span>
+            </label>
+
+            <label class="payment-option" data-payment-option="efectivo">
+              <span class="payment-option__head">
+                <span class="payment-option__radio"></span>
+                <input type="radio" name="metodoPago" value="efectivo">
+                <img src="img/efectivo.png" alt="" class="payment-option__icon" onerror="this.style.display='none'">
+                <strong>Pago en efectivo</strong>
+              </span>
+            </label>
+
+            <label class="payment-option" data-payment-option="bcp">
+              <span class="payment-option__head">
+                <span class="payment-option__radio"></span>
+                <input type="radio" name="metodoPago" value="bcp">
+                <img src="img/bcp-logo.png" alt="" class="payment-option__icon" onerror="this.style.display='none'">
+                <strong>Cuoteálo con el BCP</strong>
+              </span>
+            </label>
+
           </div>
         </div>
 
         <div class="reserva-actions">
-          <button class="btn btn--outline" type="button" data-go-next="3">Retroceder</button>
+          <button class="btn btn--outline" type="button" data-go-next="1">Retroceder</button>
           <button class="btn btn--secondary" type="button" id="payBtn">Pagar</button>
         </div>
       </section>
@@ -433,12 +309,6 @@
     <!-- ---------- COLUMNA DERECHA: RESUMEN ---------- -->
     <aside class="reserva-summary">
       <div class="summary-card" id="summaryCard">
-
-        <!-- Este botón sólo es visible en móvil (ver reserva.css). En escritorio el resumen se ve siempre completo. -->
-        <button class="package-details__toggle" type="button" id="packageDetailsToggle" aria-expanded="false" aria-controls="packageDetailsBody">
-          <span>Detalles del paquete</span>
-          <svg class="package-details__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
 
         <div class="package-details__body" id="packageDetailsBody">
           <div class="summary-card__img" id="summaryImg">FOTO</div>
@@ -454,10 +324,6 @@
             <div class="summary-card__row">
               <span>Subtotal pasajeros</span>
               <span id="summarySubtotal">$ 4,588.00</span>
-            </div>
-            <div class="summary-card__row" id="summaryLuggageRow" hidden>
-              <span>Equipaje adicional</span>
-              <span id="summaryLuggage">$ 0.00</span>
             </div>
             <div class="summary-card__row summary-card__row--total">
               <span>Total</span>

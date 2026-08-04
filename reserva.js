@@ -59,15 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================= */
   const summaryPaxEl = document.getElementById('summaryPax');
   const summarySubtotalEl = document.getElementById('summarySubtotal');
-  const summaryLuggageRowEl = document.getElementById('summaryLuggageRow');
-  const summaryLuggageEl = document.getElementById('summaryLuggage');
   const summaryTotalEl = document.getElementById('summaryTotal');
   const summaryTotalPENEl = document.getElementById('summaryTotalPEN');
 
   const formatMoney = (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   let passengerCount = pkg.qty;
-  let selectedLuggagePrice = 0;
 
   function updatePassengerCount(count) {
     passengerCount = count;
@@ -76,28 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateSummary() {
     const subtotal = pkg.priceUsd * passengerCount;
-    const luggageTotal = selectedLuggagePrice * passengerCount;
-    const total = subtotal + luggageTotal;
+    const total = subtotal;
     const totalPEN = total * pkg.exchangeRate;
 
     if (summaryPaxEl) summaryPaxEl.textContent = passengerCount;
     if (summarySubtotalEl) summarySubtotalEl.textContent = `$ ${formatMoney(subtotal)}`;
-
-    if (luggageTotal > 0) {
-      summaryLuggageRowEl.hidden = false;
-      summaryLuggageEl.textContent = `$ ${formatMoney(luggageTotal)}`;
-    } else {
-      summaryLuggageRowEl.hidden = true;
-    }
-
     if (summaryTotalEl) summaryTotalEl.textContent = `$ ${formatMoney(total)}`;
     if (summaryTotalPENEl) summaryTotalPENEl.textContent = formatMoney(totalPEN);
   }
 
   /* =========================================================
-     STEPPER — Navegación entre las 4 zonas
+     STEPPER — Navegación entre las 2 zonas
      ========================================================= */
-  const steps = [1, 2, 3, 4];
+  const steps = [1, 2];
   let currentStep = 1;
   let maxReached = 1;
 
@@ -364,43 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================================
-     PASO 2 — EQUIPAJE (selección única por tarjeta, precio total)
-     ========================================================= */
-  const luggageCards = document.querySelectorAll('.luggage-card');
-
-  luggageCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const alreadySelected = card.classList.contains('is-selected');
-      luggageCards.forEach(c => c.classList.remove('is-selected'));
-
-      if (!alreadySelected) {
-        card.classList.add('is-selected');
-        selectedLuggagePrice = parseFloat(card.dataset.price) || 0;
-      } else {
-        selectedLuggagePrice = 0;
-      }
-      updateSummary();
-    });
-  });
-
-  /* =========================================================
-     PASO 3 — ALOJAMIENTO (tabs España / Francia)
-     ========================================================= */
-  const hotelTabs = document.querySelectorAll('.hotel-tab');
-  const hotelPanels = document.querySelectorAll('[data-hotel-panel]');
-
-  hotelTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      hotelTabs.forEach(t => t.classList.remove('is-active'));
-      tab.classList.add('is-active');
-      hotelPanels.forEach(panel => {
-        panel.hidden = panel.dataset.hotelPanel !== tab.dataset.hotelTab;
-      });
-    });
-  });
-
-  /* =========================================================
-     PASO 4 — ZONA DE PAGO
+     PASO 2 — ZONA DE PAGO
      ========================================================= */
   const billingOptions = document.querySelectorAll('.billing-option');
   billingOptions.forEach(option => {
@@ -408,6 +360,22 @@ document.addEventListener('DOMContentLoaded', () => {
       billingOptions.forEach(o => o.classList.remove('is-active'));
       option.classList.add('is-active');
       option.querySelector('input[type="radio"]').checked = true;
+    });
+  });
+
+  // Método de pago: Datos de la tarjeta / Pago en efectivo / Cuoteálo con el BCP
+  const paymentOptions = document.querySelectorAll('.payment-option');
+  let selectedPaymentMethod = 'tarjeta';
+
+  paymentOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      // Evita que un click dentro de los campos de la tarjeta cambie la selección.
+      if (e.target.closest('.payment-option__body') && option.classList.contains('is-active')) return;
+
+      paymentOptions.forEach(o => o.classList.remove('is-active'));
+      option.classList.add('is-active');
+      option.querySelector('input[type="radio"]').checked = true;
+      selectedPaymentMethod = option.dataset.paymentOption;
     });
   });
 
@@ -442,20 +410,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const successClose = document.getElementById('successModalClose');
 
   payBtn.addEventListener('click', () => {
-    const requiredCardFields = document.querySelectorAll('.card-box input[required], .card-box input:not([type="hidden"])');
     let valid = true;
 
-    ['numeroTarjeta', 'nombreTitular', 'vencimiento', 'cvv', 'docTitularNumero'].forEach(name => {
-      const field = document.querySelector(`input[name="${name}"]`);
-      if (!field) return;
-      const wrapper = field.closest('.form-field');
-      if (!field.value.trim()) {
-        valid = false;
-        if (wrapper) wrapper.classList.add('has-error');
-      } else if (wrapper) {
-        wrapper.classList.remove('has-error');
-      }
-    });
+    // Los datos de tarjeta sólo son obligatorios si ese es el método elegido.
+    if (selectedPaymentMethod === 'tarjeta') {
+      ['numeroTarjeta', 'nombreTitular', 'vencimiento', 'cvv', 'docTitularNumero'].forEach(name => {
+        const field = document.querySelector(`input[name="${name}"]`);
+        if (!field) return;
+        const wrapper = field.closest('.form-field');
+        if (!field.value.trim()) {
+          valid = false;
+          if (wrapper) wrapper.classList.add('has-error');
+        } else if (wrapper) {
+          wrapper.classList.remove('has-error');
+        }
+      });
+    }
 
     if (!valid) {
       payBtn.closest('.card-box') && payBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
